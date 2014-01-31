@@ -40,27 +40,18 @@ double myfunc(unsigned n, const double * x, double * grad, void * my_func_data) 
 	for(const auto & dataPoint : dataSet.data) {
 		sumSquare += (dataPoint.xdash - dataPoint.x * transform).lengthSquared();
 	}
-	error = sqrt(sumSquare);
+	error = sqrt(sumSquare / (double) dataSet.data.size());
 	step++;
 
 	memcpy(&solution[0], x, 6 * sizeof(double));
-	cout << error << endl;
+	//cout << error << endl;
 	return error;
-}
-
-double myConstraint(unsigned n, const double * x, double * grad, void * data) {
-	double constraint = 1.0f;
-	for(int i=3; i<6; i++) {
-		constraint *= -180.0 + x[i];
-		constraint *= +180.0 - x[i];
-	}
-	return constraint;
 }
 
 DataSet data;
 
-void doFit() {
-	auto optimiser = nlopt::opt(nlopt::LN_BOBYQA, 6);
+void doFitAlg(nlopt::algorithm a) {
+	auto optimiser = nlopt::opt(a, 6);
 	vector<double> translationRotation(6, 0.0);
 	double minRms;
 	optimiser.set_min_objective(myfunc, &data);
@@ -73,6 +64,7 @@ void doFit() {
 	//optimiser.set_upper_bounds(upperBounds);
 
 	optimiser.set_stopval(0.003);
+	optimiser.set_maxtime(30.0f);
 	try {
 		auto result = optimiser.optimize(translationRotation, minRms);
 	} catch (std::exception e) {
@@ -82,6 +74,16 @@ void doFit() {
 	cout << minRms << endl;
 	for(auto x : translationRotation) {
 		cout << x << ", ";
+	}
+}
+
+void doFit() {
+	nlopt::algorithm a[5] = {nlopt::LN_COBYLA, nlopt::LN_BOBYQA, nlopt::LN_PRAXIS, nlopt::LN_NELDERMEAD, nlopt::LN_SBPLX};
+	vector<double> errors;
+	vector<int> steps;
+	for(int i=0; i<5; i++) {
+		doFitAlg(a[i]);
+		cout << "Algo " << i << ", error=" << error << "\tsteps=" << step << endl;
 	}
 }
 
