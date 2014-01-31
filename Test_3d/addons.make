@@ -1,0 +1,3 @@
+ofxGrabCam
+ofxNonLinearFit
+ofxPolyfit
