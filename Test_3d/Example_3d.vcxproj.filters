@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\basisTransformIndices.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\FitBase.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\matrix.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGrabCam\src\ofxGrabCam.cpp">
+      <Filter>addons\ofxGrabCam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\src\ofxPolyFit.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\src\ofxPolyPlane.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\Data\pfitBasis.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\Data\pfitDataPoint.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\Data\pfitDataSet.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\polyNfit.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\powerBases.cpp">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\basisTransformIndices.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\FitBase.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\matrix.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGrabCam\src\ofxGrabCam.h">
+      <Filter>addons\ofxGrabCam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\src\ofxPolyFit.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\src\ofxPolyPlane.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\Data\pfitBasis.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\Data\pfitDataPoint.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\Data\pfitDataSet.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\polyNfit.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxPolyfit\libs\polyNfit\src\powerBases.h">
+      <Filter>addons\ofxPolyFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\NLopt\include\nlopt.h">
+      <Filter>addons\ofxNonLinearFit\lib\nlopt\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\NLopt\include\nlopt.hpp">
+      <Filter>addons\ofxNonLinearFit\lib\nlopt\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit.h">
+      <Filter>addons\ofxNonLinearFit\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxNonLinearFit\Fit.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxNonLinearFit\Utils.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{7601052e-e58c-4851-a389-2d4896b7b5a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{2bfdf629-4192-41ab-a42c-e5c530278f41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxPolyFit">
+      <UniqueIdentifier>{0c3e6c0b-a709-4ee3-93aa-4d1a1847c448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxGrabCam">
+      <UniqueIdentifier>{02f6ca5f-74cf-4974-849d-b0a2ff61a520}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit">
+      <UniqueIdentifier>{55c4e7bd-7c5f-48a0-97b0-8750fb1b8d6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\lib">
+      <UniqueIdentifier>{6b26e2bc-e897-4d2a-90e5-2a6e05b11c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\lib\nlopt">
+      <UniqueIdentifier>{0631f6b4-44f5-41b7-a8d9-281cd765d0e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\lib\nlopt\include">
+      <UniqueIdentifier>{cb85d78e-0a86-4f08-b0e5-af302ce8cc87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\src">
+      <UniqueIdentifier>{06f858bf-d38d-4fca-b992-ba22182cf33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\src\ofxNonLinearFit">
+      <UniqueIdentifier>{b296f0aa-1a70-4cfb-a013-750c61baf172}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

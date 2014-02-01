@@ -22,6 +22,7 @@ int step = 0;
 
 ofMatrix4x4 getTransform(const double * params) {
 	ofVec3f eulerAngles(params[3], params[4], params[5]);
+	eulerAngles *= 360.0;
 	ofQuaternion quaternion(eulerAngles.y, ofVec3f(0, 1, 0), eulerAngles.x, ofVec3f(1, 0, 0), eulerAngles.z, ofVec3f(0, 0, 1));
 	const auto translate = ofMatrix4x4::newTranslationMatrix(params[0], params[1], params[2]);
 	const auto rotate = ofMatrix4x4::newRotationMatrix(quaternion);
@@ -63,27 +64,33 @@ void doFitAlg(nlopt::algorithm a) {
 	//optimiser.set_lower_bounds(lowerBounds);
 	//optimiser.set_upper_bounds(upperBounds);
 
-	optimiser.set_stopval(0.003);
-	optimiser.set_maxtime(30.0f);
+	optimiser.set_stopval(1e-5);
+	optimiser.set_maxtime(60.0f);
 	try {
 		auto result = optimiser.optimize(translationRotation, minRms);
 	} catch (std::exception e) {
 		cout << "Exception : " << e.what() << endl;
 	}
 
-	cout << minRms << endl;
+	cout << "Result=" << endl;
 	for(auto x : translationRotation) {
 		cout << x << ", ";
 	}
+	cout << endl;
 }
 
 void doFit() {
 	nlopt::algorithm a[5] = {nlopt::LN_COBYLA, nlopt::LN_BOBYQA, nlopt::LN_PRAXIS, nlopt::LN_NELDERMEAD, nlopt::LN_SBPLX};
 	vector<double> errors;
 	vector<int> steps;
-	for(int i=0; i<5; i++) {
+	for(int i=1; i<5; i++) {
+		auto begin = ofGetElapsedTimeMicros();
 		doFitAlg(a[i]);
-		cout << "Algo " << i << ", error=" << error << "\tsteps=" << step << endl;
+		auto end = ofGetElapsedTimeMicros();
+		auto duration = end - begin;
+		cout << "Algorithm #" << i << " completed in " << ((float) duration / 1e6) << "s" << endl;
+		cout << "error=" << error << "\tsteps=" << step << endl;
+		cout << endl;
 	}
 }
 
@@ -92,7 +99,7 @@ std::thread runThread;
 void ofApp::setup(){
 	const auto translate = ofMatrix4x4::newTranslationMatrix(2.5f, 0.0f, 2.0f);
 	
-	const auto eulerAngles = ofVec3f(90, 0, 0);
+	const auto eulerAngles = ofVec3f(0.25, 0, 0) * 360.0;
 	ofQuaternion quaternion(eulerAngles.y, ofVec3f(0, 1, 0), eulerAngles.x, ofVec3f(1, 0, 0), eulerAngles.z, ofVec3f(0, 0, 1));
 	const auto rotate = ofMatrix4x4::newRotationMatrix(quaternion);
 	

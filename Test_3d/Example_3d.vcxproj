@@ -94,7 +94,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\ofxNonLinearFit.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGrabCam\src\ofxGrabCam.cpp" />
@@ -112,6 +111,8 @@
   <ItemGroup>
     <ClInclude Include="..\lib\NLopt\include\nlopt.h" />
     <ClInclude Include="..\lib\NLopt\include\nlopt.hpp" />
+    <ClInclude Include="..\src\ofxNonLinearFit\Fit.h" />
+    <ClInclude Include="..\src\ofxNonLinearFit\Utils.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxGrabCam\src\ofxGrabCam.h" />
     <ClInclude Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit.h" />
