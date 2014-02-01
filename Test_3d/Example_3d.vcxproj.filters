@@ -40,6 +40,9 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ofxNonLinearFit\Algorithm.cpp">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
@@ -91,6 +94,9 @@
       <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ofxNonLinearFit\Utils.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxNonLinearFit\Algorithm.h">
       <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
     </ClInclude>
   </ItemGroup>

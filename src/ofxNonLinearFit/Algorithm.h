@@ -19,7 +19,7 @@ namespace ofxNonLinearFit {
 		virtual Domain getDomain() const = 0;
 
 		string toString() const;
-		static vector<Algorithm> List(bool global, bool local);
+		static vector<Algorithm> List(bool global, bool gradient);
 		static vector<Algorithm> List();
 	};
 }
