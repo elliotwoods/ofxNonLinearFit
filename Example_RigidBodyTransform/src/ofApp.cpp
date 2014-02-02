@@ -19,7 +19,7 @@ void ofApp::setup(){
 	//the target model is generally unknown (that's why we're doing the fit!)
 	//but we use one here to synthesise a training dataSet
 	Model targetModel;
-	targetModel.setTransform(ofVec3f(2.0f, 1.0f, 0.0f), ofVec3f());
+	targetModel.setTransform(ofVec3f(2.0f, 1.0f, 0.0f), ofVec3f(45, 10, 0));
 	//
 	//synthesise 10,000 data points
 	for(int i=0; i<10000; i++) {

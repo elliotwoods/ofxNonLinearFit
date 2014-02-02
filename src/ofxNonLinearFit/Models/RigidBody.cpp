@@ -24,7 +24,7 @@ namespace ofxNonLinearFit {
 			
 			const auto translate = ofMatrix4x4::newTranslationMatrix(parameters[0], parameters[1], parameters[2]);
 			
-			const auto eulerAngles = ofVec3f(parameters[3], parameters[4], parameters[5]) * 360.0f;
+			const auto eulerAngles = ofVec3f(parameters[3], parameters[4], parameters[5]);
 			const auto quaternion = ofQuaternion(eulerAngles.y, ofVec3f(0, 1, 0), eulerAngles.x, ofVec3f(1, 0, 0), eulerAngles.z, ofVec3f(0, 0, 1));
 			const auto rotate = ofMatrix4x4::newRotationMatrix(quaternion);
 
