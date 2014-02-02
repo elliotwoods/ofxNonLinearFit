@@ -2,6 +2,17 @@
 
 namespace ofxNonLinearFit {
 	//----------
+	Algorithm::Algorithm(nlopt::algorithm algorithm, Domain domain) : 
+		algorithm(algorithm), domain(domain) {
+	}
+
+	//----------
+	Algorithm & Algorithm::operator=(const Algorithm & other) {
+		(* this) = Algorithm(other.getCPPType(), other.getDomain());
+		return * this;
+	}
+
+	//----------
 	nlopt_algorithm Algorithm::getCType() const {
 		return nlopt_algorithm(this->algorithm);
 	}
@@ -108,11 +119,5 @@ namespace ofxNonLinearFit {
 		}
 
 		return list;
-	}
-
-	//----------
-	Algorithm::Algorithm(nlopt::algorithm algorithm, Domain domain) : 
-		algorithm(algorithm), domain(domain) {
-
 	}
 }

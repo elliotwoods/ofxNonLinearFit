@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../lib/NLopt/include/nlopt.h"
 #include "../lib/NLopt/include/nlopt.hpp"
 
@@ -18,6 +20,9 @@ namespace ofxNonLinearFit {
 			Other = 4
 		};
 
+		Algorithm(nlopt::algorithm, Domain);
+		Algorithm & operator=(const Algorithm & other);
+
 		virtual nlopt_algorithm getCType() const;
 		virtual nlopt::algorithm getCPPType() const;
 		virtual Domain getDomain() const;
@@ -26,7 +31,6 @@ namespace ofxNonLinearFit {
 		static vector<Algorithm> List(Domain = LocalGradientless); ///<List all algorithms within a given domain
 		static vector<Algorithm> ListAll();
 	protected:
-		Algorithm(nlopt::algorithm, Domain);
 		const nlopt::algorithm algorithm;
 		const Domain domain;
 	};

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGrabCam\src\ofxGrabCam.cpp">
+      <Filter>addons\ofxGrabCam\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit\Algorithm.cpp">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxNonLinearFit\Models\RigidBody.cpp">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit\Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{71834f65-f3a9-211e-73b8-dc8563776aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxGrabCam">
+      <UniqueIdentifier>{fdebff3d-a5ab-aa4f-3d3c-728476801f40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxGrabCam\src">
+      <UniqueIdentifier>{46ee530c-80b2-2cd9-fa39-d568d803c38b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit">
+      <UniqueIdentifier>{34be23b6-5f77-937c-65ee-a00fb30480ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\src">
+      <UniqueIdentifier>{33c9892c-2259-1947-359f-8823044d9dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\src\ofxNonLinearFit">
+      <UniqueIdentifier>{946dee19-0769-96a3-1509-d5b120501f9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNonLinearFit\src\ofxNonLinearFit\Models">
+      <UniqueIdentifier>{e808cab1-6769-4116-b064-753693f0ed08}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGrabCam\src\ofxGrabCam.h">
+      <Filter>addons\ofxGrabCam\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit\Algorithm.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit\Fit.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit\Utils.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit.h">
+      <Filter>addons\ofxNonLinearFit\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxNonLinearFit\Model.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxNonLinearFit\Models\RigidBody.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit\Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>
