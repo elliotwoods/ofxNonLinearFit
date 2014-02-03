@@ -20,6 +20,7 @@ namespace ofxNonLinearFit {
 			Other = 4
 		};
 
+		Algorithm(nlopt::algorithm);
 		Algorithm(nlopt::algorithm, Domain);
 		Algorithm & operator=(const Algorithm & other);
 

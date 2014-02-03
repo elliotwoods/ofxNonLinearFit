@@ -2,6 +2,19 @@
 
 namespace ofxNonLinearFit {
 	//----------
+	Algorithm::Algorithm(nlopt::algorithm algorithm) : 
+		algorithm(algorithm), domain(Algorithm::Other) {
+			auto list = Algorithm::ListAll();
+
+			for(auto item : list) {
+				if (item.getCPPType() == algorithm) {
+					(*this) = item;
+					return;
+				}
+			}
+	}
+
+	//----------
 	Algorithm::Algorithm(nlopt::algorithm algorithm, Domain domain) : 
 		algorithm(algorithm), domain(domain) {
 	}

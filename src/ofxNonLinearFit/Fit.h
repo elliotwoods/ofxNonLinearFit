@@ -51,7 +51,7 @@ namespace ofxNonLinearFit {
 		}
 
 		void clearSettings() {
-			nlopt_set_stopval(this->optimiser, 1e-7);
+			nlopt_set_stopval(this->optimiser, 1e-12);
 		}
 
 		void forceStop() {
