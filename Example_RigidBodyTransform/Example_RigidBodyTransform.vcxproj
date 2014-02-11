@@ -101,7 +101,7 @@
     <ClCompile Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit\Algorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\ofxNonLinearFit\Model.h" />
+    <ClInclude Include="..\src\ofxNonLinearFit\Models\Base.h" />
     <ClInclude Include="..\src\ofxNonLinearFit\Models\RigidBody.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxGrabCam\src\ofxGrabCam.h" />

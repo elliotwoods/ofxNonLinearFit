@@ -1,7 +1,7 @@
 #include "../lib/NLopt/include/nlopt.h"
 #include "../lib/NLopt/include/nlopt.hpp"
 
-#include "Model.h"
+#include "Models/Base.h"
 #include "Algorithm.h"
 
 #include "ofLog.h"

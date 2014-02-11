@@ -62,10 +62,10 @@
     <ClInclude Include="..\..\..\addons\ofxNonLinearFit\src\ofxNonLinearFit.h">
       <Filter>addons\ofxNonLinearFit\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ofxNonLinearFit\Model.h">
-      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\ofxNonLinearFit\Models\RigidBody.h">
+      <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxNonLinearFit\Models\Base.h">
       <Filter>addons\ofxNonLinearFit\src\ofxNonLinearFit\Models</Filter>
     </ClInclude>
   </ItemGroup>

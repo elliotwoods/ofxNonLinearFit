@@ -3,7 +3,7 @@
 #include "ofVec3f.h"
 #include "ofMatrix4x4.h"
 
-#include "../Model.h"
+#include "Base.h"
 
 namespace ofxNonLinearFit {
 	namespace Models {
@@ -12,7 +12,7 @@ namespace ofxNonLinearFit {
 			ofVec3f xdash;
 		};
 
-		class RigidBody : public Model<RigidBodyDataPoint, RigidBody> {
+		class RigidBody : public Base<RigidBodyDataPoint, RigidBody> {
 		public:
 			typedef RigidBodyDataPoint DataPoint;
 
@@ -20,10 +20,9 @@ namespace ofxNonLinearFit {
 			double getResidual(DataPoint) const override;
 			void evaluate(DataPoint &) const override;
 
-			void setParameters(const Parameters &) override;
-			void clearParameters() override;
+			/// Override this is you would like to interpret the 6 parameters differently
+			virtual void cacheModel() override;
 
-			void setTransform(const ofMatrix4x4 &);
 			void setTransform(const ofVec3f & translation, const ofVec3f & rotationEuler);
 			ofVec3f evaluate(const ofVec3f &) const;
 

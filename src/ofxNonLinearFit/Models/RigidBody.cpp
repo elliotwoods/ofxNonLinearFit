@@ -19,36 +19,23 @@ namespace ofxNonLinearFit {
 		}
 
 		//----------
-		void RigidBody::setParameters(const Parameters & parameters) {
-			Model::setParameters(parameters);
+		void RigidBody::cacheModel() {
+			const auto & parameters = this->parameters;
+
+			if (parameters == NULL) {
+				this->transform = ofMatrix4x4();
+			} else {
+				const auto translate = ofMatrix4x4::newTranslationMatrix(parameters[0], parameters[1], parameters[2]);
 			
-			const auto translate = ofMatrix4x4::newTranslationMatrix(parameters[0], parameters[1], parameters[2]);
-			
-			const auto eulerAngles = ofVec3f(parameters[3], parameters[4], parameters[5]);
-			const auto quaternion = ofQuaternion(eulerAngles.y, ofVec3f(0, 1, 0), eulerAngles.x, ofVec3f(1, 0, 0), eulerAngles.z, ofVec3f(0, 0, 1));
-			const auto rotate = ofMatrix4x4::newRotationMatrix(quaternion);
+				const auto eulerAngles = ofVec3f(parameters[3], parameters[4], parameters[5]);
+				const auto quaternion = ofQuaternion(eulerAngles.x, ofVec3f(1, 0, 0), eulerAngles.y, ofVec3f(0, 1, 0), eulerAngles.z, ofVec3f(0, 0, 1));
+				const auto rotate = ofMatrix4x4::newRotationMatrix(quaternion);
 
-			this->transform = rotate * translate;
-		}
-
-		//----------
-		void RigidBody::clearParameters() {
-			Model::clearParameters();
-
-			//clear back to identity
-			this->transform = ofMatrix4x4();
+				this->transform = rotate * translate;
+			}
 		}
 
 #pragma mark utility functions
-		//----------
-		void RigidBody::setTransform(const ofMatrix4x4 & transform) {
-			const auto translation = transform.getTranslation();
-			const auto rotationQuaternion = transform.getRotate();
-			const auto rotationEuler = rotationQuaternion.getEuler();
-
-			this->setTransform(translation, rotationEuler);
-		}
-
 		//----------
 		void RigidBody::setTransform(const ofVec3f & translation, const ofVec3f & rotationEuler) {
 			Parameter parameters[] = { translation.x, translation.y, translation.z, rotationEuler.x, rotationEuler.y, rotationEuler.z };
