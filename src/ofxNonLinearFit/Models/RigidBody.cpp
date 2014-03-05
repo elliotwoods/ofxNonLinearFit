@@ -43,6 +43,11 @@ namespace ofxNonLinearFit {
 		}
 
 		//----------
+		const ofMatrix4x4 & RigidBody::getCachedTransform() const {
+			return this->transform;
+		}
+
+		//----------
 		ofVec3f RigidBody::evaluate(const ofVec3f & x) const {
 			return x * this->transform;
 		}

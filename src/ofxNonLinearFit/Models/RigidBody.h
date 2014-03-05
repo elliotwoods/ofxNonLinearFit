@@ -24,6 +24,7 @@ namespace ofxNonLinearFit {
 			virtual void cacheModel() override;
 
 			void setTransform(const ofVec3f & translation, const ofVec3f & rotationEuler);
+			const ofMatrix4x4 & getCachedTransform() const;
 			ofVec3f evaluate(const ofVec3f &) const;
 
 		protected:
