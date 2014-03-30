@@ -4,7 +4,8 @@ using namespace ofxNonLinearFit;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	//pull this type out for convenience
+	//in this example, we will try many different fitting algorithms against one data set
+	//to keep track of which algorithm we are currently using, we have a pointer called:
 	this->currentFitter = NULL;
 
 	//pull this type out for convenience
@@ -75,7 +76,9 @@ void ofApp::setup(){
 		}
 	};
 
+	//we run the fits in a background thread so that we can visualise the results as the fit is being performed
 	this->thread = std::thread(runTests);
+	
 	glPointSize(2.0f);
 }
 	
@@ -88,8 +91,13 @@ void ofApp::update(){
 void ofApp::draw(){
 	ofBackgroundGradient(40, 0);
 
+	//make a copy of the training set to get the x values
 	auto evaluatedDataSet = this->dataSet;
+	
+	//evaluate the xdash values using the current model
 	this->model.evaluateSet(evaluatedDataSet);
+	
+	//draw the 3d preview scene of target points and current fit results
 	camera.begin();
 	ofDrawGrid();
 	ofMesh targetPoints;
@@ -108,6 +116,7 @@ void ofApp::draw(){
 	ofPopStyle();
 	camera.end();
 
+	//print the status to the screen
 	stringstream status;
 	string algoName;
 	if (this->currentFitter) {
