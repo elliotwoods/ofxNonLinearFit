@@ -20,7 +20,7 @@ namespace ofxNonLinearFit {
 			double getResidual(DataPoint) const override;
 			void evaluate(DataPoint &) const override;
 
-			/// Override this is you would like to interpret the 6 parameters differently
+			/// Override this if you would like to interpret the 6 pose parameters in a non-default way
 			virtual void cacheModel() override;
 
 			void setTransform(const ofVec3f & translation, const ofVec3f & rotationEuler);
