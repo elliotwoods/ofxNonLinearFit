@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../lib/NLopt/include/nlopt.h"
-#include "../lib/NLopt/include/nlopt.hpp"
+#include "../libs/NLopt/include/nlopt.h"
+#include "../libs/NLopt/include/nlopt.hpp"
 
 #include <vector>
 

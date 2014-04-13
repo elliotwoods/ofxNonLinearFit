@@ -9,7 +9,6 @@ namespace ofxNonLinearFit {
 		template<class DataPoint, class Child>
 		class Base {
 		public:
-			typedef DataPoint DataPoint;
 			typedef double Parameter;
 			typedef Parameter * Parameters;
 			typedef vector<DataPoint> DataSet;
