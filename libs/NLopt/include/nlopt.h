@@ -25,8 +25,9 @@
 
 #include <stddef.h> /* for ptrdiff_t and size_t */
 
-/* Change 0 to 1 to use stdcall convention under Win32 */
-#if 0 && (defined(_WIN32) || defined(__WIN32__))
+/* use stdcall convention under Windows, since this seems to
+   be more standard there and is important for calling from .NET */
+#if defined(_WIN32) || defined(__WIN32__)
 #  if defined(__GNUC__)
 #    define NLOPT_STDCALL __attribute__((stdcall))
 #  elif defined(_MSC_VER) || defined(_ICC) || defined(_STDCALL_SUPPORTED)
@@ -39,9 +40,7 @@
 #endif
 
 /* for Windows compilers, you should add a line
-*/
-#define NLOPT_DLL
-/*
+           #define NLOPT_DLL
    when using NLopt from a DLL, in order to do the proper
    Windows importing nonsense. */
 #if defined(NLOPT_DLL) && (defined(_WIN32) || defined(__WIN32__)) && !defined(__LCC__)
@@ -150,8 +149,6 @@ typedef enum {
      NLOPT_LD_SLSQP,
 
      NLOPT_LD_CCSAQ,
-
-     NLOPT_GN_ESCH,
 
      NLOPT_NUM_ALGORITHMS /* not an algorithm, just the number of them */
 } nlopt_algorithm;
@@ -306,9 +303,6 @@ typedef void* (*nlopt_munge)(void *p);
 NLOPT_EXTERN(void) nlopt_set_munge(nlopt_opt opt,
 				  nlopt_munge munge_on_destroy,
 				  nlopt_munge munge_on_copy);
-typedef void* (*nlopt_munge2)(void *p, void *data);
-NLOPT_EXTERN(void) nlopt_munge_data(nlopt_opt opt,
-                                    nlopt_munge2 munge, void *data);
 
 /*************************** DEPRECATED API **************************/
 /* The new "object-oriented" API is preferred, since it allows us to

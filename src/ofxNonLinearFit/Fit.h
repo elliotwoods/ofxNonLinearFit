@@ -10,7 +10,7 @@ namespace ofxNonLinearFit {
 	template<class Model>
 	class Fit {
 	public:
-		Fit(Algorithm algorithm) :
+		Fit(Algorithm algorithm = Algorithm(nlopt::LN_NEWUOA, ofxNonLinearFit::Algorithm::LocalGradientless)) :
 			algorithm(algorithm) {
 			this->optimiser = nlopt_create(this->algorithm.getCType(), Model().getParameterCount());
 			this->clearSettings();

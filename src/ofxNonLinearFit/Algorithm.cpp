@@ -74,7 +74,6 @@ namespace ofxNonLinearFit {
 			GN_DIRECT_L_RAND_NOSCAL,
 			GN_ORIG_DIRECT,
 			GN_ORIG_DIRECT_L,
-			GN_ESCH,
 			GN_ISRES
 		};
 		
