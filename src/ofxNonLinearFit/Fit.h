@@ -1,5 +1,5 @@
-#include "../lib/NLopt/include/nlopt.h"
-#include "../lib/NLopt/include/nlopt.hpp"
+#include "../libs/NLopt/include/nlopt.h"
+#include "../libs/NLopt/include/nlopt.hpp"
 
 #include "Models/Base.h"
 #include "Algorithm.h"
@@ -99,14 +99,16 @@ namespace ofxNonLinearFit {
 			//get our useful data out
 			const Payload & payload = * (Payload *) data;
 			auto & model = payload.model;
-			const auto & dataSet = * (Model::DataSet *) payload.dataSet;
-
+			
+			//would prefer to do this way, but clang doesn't like it	
+			//const auto & dataSet = * (Model::DataSet *) payload.dataSet;
+			//auto parameters = (Model::Parameters) x;
+			
 			//update the model
-			auto parameters = (Model::Parameters) x;
-			model.setParameters(parameters);
+			model.setParameters(x);
 
 			//calc residual
-			return model.getResidualOnSet(dataSet);
+			return model.getResidualOnSet(* data);
 		}
 
 		nlopt_opt optimiser;
