@@ -55,12 +55,16 @@ namespace ofxNonLinearFit {
 				return this->parameters;
 			}
 
-			void setParameters(const Parameters & parameters) {
+			void setParameters(const Parameters parameters) {
 				if (!this->isReady()) {
 					this->parameters = new Parameter[this->getParameterCount()];
 				}
 				memcpy(this->parameters, parameters, sizeof(Parameter) * this->getParameterCount());
 				this->cacheModel();
+			}
+			
+			void setParameters(const double * x) {
+				this->setParameters((Parameters) x);
 			}
 
 			///override this if you want to loose pre-cached data when model is cleared
@@ -82,6 +86,10 @@ namespace ofxNonLinearFit {
 					residual += this->getResidual(dataPoint);
 				}
 				return residual;
+			}
+			
+			double getResidualOnSet(void * data) {
+				this->getResidualOnSet(* (DataSet *) data);
 			}
 
 			virtual double getResidualOnSet(const Parameters parameters, const DataSet & dataSet) const {

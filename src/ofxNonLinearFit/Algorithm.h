@@ -4,6 +4,7 @@
 #include "../libs/NLopt/include/nlopt.hpp"
 
 #include <vector>
+#include <string>
 
 using namespace std;
 

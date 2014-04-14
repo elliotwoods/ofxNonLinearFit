@@ -100,15 +100,11 @@ namespace ofxNonLinearFit {
 			const Payload & payload = * (Payload *) data;
 			auto & model = payload.model;
 			
-			//would prefer to do this way, but clang doesn't like it	
-			//const auto & dataSet = * (Model::DataSet *) payload.dataSet;
-			//auto parameters = (Model::Parameters) x;
-			
 			//update the model
 			model.setParameters(x);
 
 			//calc residual
-			return model.getResidualOnSet(* data);
+			return model.getResidualOnSet(payload.dataSet);
 		}
 
 		nlopt_opt optimiser;
