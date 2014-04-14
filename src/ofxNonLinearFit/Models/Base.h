@@ -89,7 +89,7 @@ namespace ofxNonLinearFit {
 			}
 			
 			double getResidualOnSet(void * data) {
-				this->getResidualOnSet(* (DataSet *) data);
+				return this->getResidualOnSet(* (DataSet *) data);
 			}
 
 			virtual double getResidualOnSet(const Parameters parameters, const DataSet & dataSet) const {
