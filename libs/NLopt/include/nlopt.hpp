@@ -89,6 +89,7 @@ namespace nlopt {
      G_MLSL_LDS,
      LD_SLSQP,
      LD_CCSAQ,
+     GN_ESCH,
      NUM_ALGORITHMS /* not an algorithm, just the number of them */
   };
   enum result {
