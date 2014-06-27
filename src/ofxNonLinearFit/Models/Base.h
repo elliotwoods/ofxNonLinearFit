@@ -88,12 +88,12 @@ namespace ofxNonLinearFit {
 				return residual;
 			}
 			
-			double getResidualOnSet(void * data) {
+			double getResidualOnSet(const void * data) {
 				return this->getResidualOnSet(* (DataSet *) data);
 			}
 
 			virtual double getResidualOnSet(const Parameters parameters, const DataSet & dataSet) const {
-				Child testModel;
+				Child testModel(* (Child *) this);
 				testModel.setParameters(parameters);
 				return testModel.getResidualOnSet(dataSet);
 			}

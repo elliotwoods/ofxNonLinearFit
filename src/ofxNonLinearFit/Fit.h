@@ -24,7 +24,7 @@ namespace ofxNonLinearFit {
 		///since C++ language does not have "where" keyword, we can't access Model::DataSet in the
 		///function definition, and must use a void * instead.
 		///returns residual or throws string
-		bool optimise(Model & model, void * const dataSet, double * residual = NULL) { 
+		bool optimise(Model & model, const void * dataSet, double * residual = NULL) { 
 			bool localResidual = (!residual);
 			if(localResidual) {
 				residual = new double;
@@ -92,7 +92,7 @@ namespace ofxNonLinearFit {
 	protected:
 		struct Payload {
 			Model & model;
-			void * const dataSet;
+			const void * dataSet;
 		};
 
 		static double minimiserFunction(unsigned n, const double * x, double * grad, void * data) {
