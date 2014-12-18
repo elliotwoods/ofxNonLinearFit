@@ -12,7 +12,7 @@
       <AdditionalDependencies>libnlopt-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /e /i /y "..\..\..\addons\ofxNonLinearFit\lib\NLopt\bin\win32\*.dll" "$(ProjectDir)bin"
+      <Command>xcopy /e /i /y "..\..\..\addons\ofxNonLinearFit\libs\NLopt\bin\win32\*.dll" "$(ProjectDir)bin"
 %(Command)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

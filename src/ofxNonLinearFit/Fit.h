@@ -39,7 +39,7 @@ namespace ofxNonLinearFit {
 			nlopt_set_min_objective(this->optimiser, function, &payload);
 			auto result = nlopt_optimize(this->optimiser, model.getParameters(), residual);
 
-			if (result < 0) {
+			if (result < 0 && result != -4) { // we take something that is roundoff limited as being a success for convenience
 				ofLogWarning("ofxNonLinearFit") << "Fit failed :" << toString(result);
 			}
 
