@@ -45,7 +45,11 @@ namespace ofxNonLinearFit {
 				if (!this->isReady()) {
 					this->parameters = new Parameter[this->getParameterCount()];
 				}
-				for(int i=0; i<this->getParameterCount(); i++) {
+				this->resetParameters();
+			}
+
+			virtual void resetParameters() {
+				for (int i = 0; i<this->getParameterCount(); i++) {
 					this->parameters[i] = 0.0;
 				}
 			}
