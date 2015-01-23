@@ -22,6 +22,10 @@ namespace ofxNonLinearFit {
 			//
 			//--
 
+			///override this if you want to pre-cache anything about your model
+			virtual void cacheModel() {
+			};
+
 			Base() {
 				this->parameters = NULL;
 			}
@@ -79,10 +83,6 @@ namespace ofxNonLinearFit {
 				}
 				this->cacheModel();
 			}
-
-			///override this if you want to pre-cache anything about your model
-			virtual void cacheModel() {
-			};
 
 			virtual double getResidualOnSet(const DataSet & dataSet) const {
 				double residual = 0.0;
