@@ -8,7 +8,8 @@ namespace ofxNonLinearFit {
 
 			for(auto item : list) {
 				if (item.getCPPType() == algorithm) {
-					(*this) = item;
+					this->algorithm = item.algorithm;
+					this->domain = item.domain;
 					return;
 				}
 			}
@@ -17,12 +18,6 @@ namespace ofxNonLinearFit {
 	//----------
 	Algorithm::Algorithm(nlopt::algorithm algorithm, Domain domain) : 
 		algorithm(algorithm), domain(domain) {
-	}
-
-	//----------
-	Algorithm & Algorithm::operator=(const Algorithm & other) {
-		(* this) = Algorithm(other.getCPPType(), other.getDomain());
-		return * this;
 	}
 
 	//----------

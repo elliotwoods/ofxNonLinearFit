@@ -23,7 +23,6 @@ namespace ofxNonLinearFit {
 
 		Algorithm(nlopt::algorithm);
 		Algorithm(nlopt::algorithm, Domain);
-		Algorithm & operator=(const Algorithm & other);
 
 		virtual nlopt_algorithm getCType() const;
 		virtual nlopt::algorithm getCPPType() const;
@@ -33,7 +32,7 @@ namespace ofxNonLinearFit {
 		static vector<Algorithm> List(Domain = LocalGradientless); ///<List all algorithms within a given domain
 		static vector<Algorithm> ListAll();
 	protected:
-		const nlopt::algorithm algorithm;
-		const Domain domain;
+		nlopt::algorithm algorithm;
+		Domain domain;
 	};
 }
