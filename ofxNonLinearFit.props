@@ -8,11 +8,11 @@
       <AdditionalIncludeDirectories>..\..\..\addons\ofxNonLinearFit\libs\NLopt\include;..\..\..\addons\ofxNonLinearFit\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\..\..\addons\ofxNonLinearFit\libs\NLopt\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\addons\ofxNonLinearFit\libs\NLopt\lib\vs\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libnlopt-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /e /i /y "..\..\..\addons\ofxNonLinearFit\libs\NLopt\bin\win32\*.dll" "$(ProjectDir)bin"
+      <Command>xcopy /e /i /y "..\..\..\addons\ofxNonLinearFit\libs\NLopt\bin\vs\$(Platform)\*.dll" "$(ProjectDir)bin"
 %(Command)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
