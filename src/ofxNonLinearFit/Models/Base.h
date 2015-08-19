@@ -89,7 +89,7 @@ namespace ofxNonLinearFit {
 				for(const auto & dataPoint : dataSet) {
 					residual += this->getResidual(dataPoint);
 				}
-				return residual;
+				return residual / dataSet.size();
 			}
 			
 			double getResidualOnSet(const void * data) {
