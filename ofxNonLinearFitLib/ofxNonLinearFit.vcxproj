@@ -108,7 +108,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "$(ProjectDir)..\..\..\addons\ofxEdsdk\libs\EDSDK\bin\$(Platform)/" "$(SolutionDir)bin/data/" "*.dll" /njs /njh /np /fp /bytes</Command>
+      <Command>robocopy "$(ProjectDir)../../../addons/ofxNonLinearFit/libs/NLopt/bin/vs/$(Platform)/" "$(SolutionDir)bin/" "*.dll" /njs /njh /np /fp /bytes
+if errorlevel 1 exit 0 else exit %errorlevel%</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>libnlopt-0.lib</AdditionalDependencies>
@@ -130,7 +131,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "$(ProjectDir)..\..\..\addons\ofxEdsdk\libs\EDSDK\bin\$(Platform)/" "$(SolutionDir)bin/data/" "*.dll" /njs /njh /np /fp /bytes</Command>
+      <Command>robocopy "$(ProjectDir)../../../addons/ofxNonLinearFit/libs/NLopt/bin/vs/$(Platform)/" "$(SolutionDir)bin/" "*.dll" /njs /njh /np /fp /bytes
+if errorlevel 1 exit 0 else exit %errorlevel%</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>libnlopt-0.lib</AdditionalDependencies>
@@ -155,7 +157,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "$(ProjectDir)..\..\..\addons\ofxEdsdk\libs\EDSDK\bin\$(Platform)/" "$(SolutionDir)bin/data/" "*.dll" /njs /njh /np /fp /bytes</Command>
+      <Command>robocopy "$(ProjectDir)../../../addons/ofxNonLinearFit/libs/NLopt/bin/vs/$(Platform)/" "$(SolutionDir)bin/" "*.dll" /njs /njh /np /fp /bytes
+if errorlevel 1 exit 0 else exit %errorlevel%</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>libnlopt-0.lib</AdditionalDependencies>
@@ -180,7 +183,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "$(ProjectDir)..\..\..\addons\ofxEdsdk\libs\EDSDK\bin\$(Platform)/" "$(SolutionDir)bin/data/" "*.dll" /njs /njh /np /fp /bytes</Command>
+      <Command>robocopy "$(ProjectDir)../../../addons/ofxNonLinearFit/libs/NLopt/bin/vs/$(Platform)/" "$(SolutionDir)bin/" "*.dll" /njs /njh /np /fp /bytes
+if errorlevel 1 exit 0 else exit %errorlevel%</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>libnlopt-0.lib</AdditionalDependencies>
