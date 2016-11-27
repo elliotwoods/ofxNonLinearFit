@@ -16,6 +16,16 @@ namespace ofxNonLinearFit {
 			this->clearSettings();
 		}
 
+		Fit(size_t parameterCount, Algorithm algorithm = Algorithm(nlopt::LN_NEWUOA, ofxNonLinearFit::Algorithm::LocalGradientless)) :
+			algorithm(algorithm) {
+			this->optimiser = nlopt_create(this->algorithm.getCType(), parameterCount);
+			this->clearSettings();
+		}
+
+		nlopt_opt & getOptimiser() {
+			return this->optimiser;
+		}
+
 		virtual ~Fit() {
 			nlopt_destroy(this->optimiser);
 		}

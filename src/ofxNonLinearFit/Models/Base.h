@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cstring>
+#include <mutex>
+#include <atomic>
 
 namespace ofxNonLinearFit {
 	namespace Models {
@@ -85,11 +87,22 @@ namespace ofxNonLinearFit {
 			}
 
 			virtual double getResidualOnSet(const DataSet & dataSet) const {
-				double residual = 0.0;
-				for(const auto & dataPoint : dataSet) {
-					residual += this->getResidual(dataPoint);
+				if (this->multiThreaded) {
+					atomic<double> residual = 0.0;
+					for (const auto & dataPoint : dataSet) {
+						auto thisResidual = this->getResidual(dataPoint);
+
+						residual = residual + thisResidual;
+					}
+					return residual / (double)dataSet.size();
 				}
-				return residual / dataSet.size();
+				else {
+					double residual = 0.0;
+					for (const auto & dataPoint : dataSet) {
+						residual += this->getResidual(dataPoint);
+					}
+					return residual / (double) dataSet.size();
+				}
 			}
 			
 			double getResidualOnSet(const void * data) {
@@ -110,6 +123,7 @@ namespace ofxNonLinearFit {
 
 		protected:
 			Parameters parameters;
+			bool multiThreaded = true;
 		};
 	}
 }
