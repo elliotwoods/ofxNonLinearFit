@@ -1,4 +1,5 @@
 #include "RigidBody.h"
+#include "ofLog.h"
 
 namespace ofxNonLinearFit {
 	namespace Models {
@@ -9,8 +10,11 @@ namespace ofxNonLinearFit {
 		}
 
 		//----------
-		double RigidBody::getResidual(DataPoint dataPoint) const {
-			return (this->evaluate(dataPoint.x) - dataPoint.xdash).lengthSquared();
+		void RigidBody::getResidual(DataPoint dataPoint, double & residual, double * gradient) const {
+			residual = (this->evaluate(dataPoint.x) - dataPoint.xdash).lengthSquared();
+			if (gradient) {
+				ofLogError() <<"ofxNonLinearFit::Models::RigidBody does not support gradient algorithms";
+			}
 		}
 
 		//----------

@@ -16,6 +16,16 @@ namespace ofxNonLinearFit {
 			this->clearSettings();
 		}
 
+		Fit(size_t parameterCount, Algorithm algorithm = Algorithm(nlopt::LN_NEWUOA, ofxNonLinearFit::Algorithm::LocalGradientless)) :
+			algorithm(algorithm) {
+			this->optimiser = nlopt_create(this->algorithm.getCType(), parameterCount);
+			this->clearSettings();
+		}
+
+		nlopt_opt & getOptimiser() {
+			return this->optimiser;
+		}
+
 		virtual ~Fit() {
 			nlopt_destroy(this->optimiser);
 		}
@@ -38,10 +48,11 @@ namespace ofxNonLinearFit {
 			nlopt_func function = & Fit<Model>::minimiserFunction;
 			nlopt_set_min_objective(this->optimiser, function, &payload);
 			auto result = nlopt_optimize(this->optimiser, model.getParameters(), residual);
+			model.cacheModel(); // the fit algorithm may change the parameters back to something else
 
-			if (result < 0 && result != -4) { // we take something that is roundoff limited as being a success for convenience
-				ofLogWarning("ofxNonLinearFit") << "Fit failed :" << toString(result);
-			}
+// 			if (result < 0 && result != -4) { // we take something that is roundoff limited as being a success for convenience
+// 				ofLogWarning("ofxNonLinearFit") << "Fit failed :" << toString(result);
+// 			}
 
 			if (localResidual) {
 				delete residual;
@@ -95,7 +106,7 @@ namespace ofxNonLinearFit {
 			const void * dataSet;
 		};
 
-		static double minimiserFunction(unsigned n, const double * x, double * grad, void * data) {
+		static double minimiserFunction(unsigned n, const double * x, double * gradient, void * data) {
 			//get our useful data out
 			const Payload & payload = * (Payload *) data;
 			auto & model = payload.model;
@@ -103,8 +114,10 @@ namespace ofxNonLinearFit {
 			//update the model
 			model.setParameters(x);
 
-			//calc residual
-			return model.getResidualOnSet(payload.dataSet);
+			//calc residual and gradient
+			double residual;
+			model.getResidualOnSet(payload.dataSet, residual, gradient);
+			return residual;
 		}
 
 		nlopt_opt optimiser;

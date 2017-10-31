@@ -17,7 +17,7 @@ namespace ofxNonLinearFit {
 			typedef RigidBodyDataPoint DataPoint;
 
 			unsigned int getParameterCount() const override;
-			double getResidual(DataPoint) const override;
+			void getResidual(DataPoint, double & residual, double * gradient) const override;
 			void evaluate(DataPoint &) const override;
 
 			/// Override this if you would like to interpret the 6 pose parameters in a non-default way
