@@ -19,7 +19,7 @@ namespace ofxNonLinearFit {
 			//parts to overload when designing your own model
 			//
 			virtual unsigned int getParameterCount() const = 0;
-			virtual double getResidual(DataPoint) const = 0;
+			virtual void getResidual(DataPoint, double & residual, double * gradient = 0) const = 0;
 			virtual void evaluate(DataPoint &) const = 0;
 			//
 			//--
@@ -55,7 +55,7 @@ namespace ofxNonLinearFit {
 			}
 
 			virtual void resetParameters() {
-				for (int i = 0; i<this->getParameterCount(); i++) {
+				for (size_t i = 0; i<this->getParameterCount(); i++) {
 					this->parameters[i] = 0.0;
 				}
 			}
@@ -86,33 +86,36 @@ namespace ofxNonLinearFit {
 				this->cacheModel();
 			}
 
-			virtual double getResidualOnSet(const DataSet & dataSet) const {
-				if (this->multiThreaded) {
-					atomic<double> residual = 0.0;
-					for (const auto & dataPoint : dataSet) {
-						auto thisResidual = this->getResidual(dataPoint);
+			virtual void getResidualOnSet(const DataSet & dataSet, double & residual, double * gradient) const {
+				if (gradient != nullptr) {
+					throw std::logic_error("Gradient not implemented in getResidualOnSet");
+				}
 
-						residual = residual + thisResidual;
+				if (this->multiThreaded) {
+					atomic<double> residualAccumulator = 0.0;
+					for (const auto & dataPoint : dataSet) {
+						double dataPointResidual;
+						this->getResidual(dataPoint, dataPointResidual);
+
+						residualAccumulator = residualAccumulator + dataPointResidual;
 					}
-					return residual / (double)dataSet.size();
+					residual = residualAccumulator / (double)dataSet.size();
 				}
 				else {
-					double residual = 0.0;
+					double residualAccumulator = 0.0;
 					for (const auto & dataPoint : dataSet) {
-						residual += this->getResidual(dataPoint);
+						double dataPointResidual;
+						this->getResidual(dataPoint, dataPointResidual);
+						residualAccumulator += dataPointResidual;
 					}
-					return residual / (double) dataSet.size();
+					residual = residualAccumulator / (double) dataSet.size();
 				}
 			}
-			
-			double getResidualOnSet(const void * data) {
-				return this->getResidualOnSet(* (DataSet *) data);
-			}
 
-			virtual double getResidualOnSet(const Parameters parameters, const DataSet & dataSet) const {
+			virtual void getResidualOnSet(const Parameters parameters, const DataSet & dataSet, double & residual, double * gradient) const {
 				Child testModel(* (Child *) this);
 				testModel.setParameters(parameters);
-				return testModel.getResidualOnSet(dataSet);
+				testModel.getResidualOnSet(dataSet, residual, gradient);
 			}
 
 			void evaluateSet(DataSet & dataSet) const {

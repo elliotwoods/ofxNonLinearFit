@@ -116,7 +116,7 @@ namespace ofxNonLinearFit {
 
 			//calc residual and gradient
 			double residual;
-			model.getResidualOnSet(payload.dataSet, residual, gradient);
+			model.getResidualOnSet(* (Model::DataSet*) payload.dataSet, residual, gradient);
 			return residual;
 		}
 
