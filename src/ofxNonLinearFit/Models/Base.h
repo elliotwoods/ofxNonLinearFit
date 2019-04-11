@@ -13,7 +13,7 @@ namespace ofxNonLinearFit {
 		public:
 			typedef double Parameter;
 			typedef Parameter * Parameters;
-			typedef vector<DataPoint> DataSet;
+			typedef std::vector<DataPoint> DataSet;
 
 			//--
 			//parts to overload when designing your own model
@@ -92,7 +92,7 @@ namespace ofxNonLinearFit {
 				}
 
 				if (this->multiThreaded) {
-					atomic<double> residualAccumulator = 0.0;
+					std::atomic<double> residualAccumulator = 0.0;
 					for (const auto & dataPoint : dataSet) {
 						double dataPointResidual;
 						this->getResidual(dataPoint, dataPointResidual);
