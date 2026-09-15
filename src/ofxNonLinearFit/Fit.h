@@ -1,5 +1,5 @@
-#include "../libs/NLopt/include/nlopt.h"
-#include "../libs/NLopt/include/nlopt.hpp"
+#include <nlopt.h>
+#include <nlopt.hpp>
 
 #include "Models/Base.h"
 #include "Algorithm.h"
@@ -116,7 +116,7 @@ namespace ofxNonLinearFit {
 
 			//calc residual and gradient
 			double residual;
-			model.getResidualOnSet(* (Model::DataSet*) payload.dataSet, residual, gradient);
+			model.getResidualOnSet(* (typename Model::DataSet*) payload.dataSet, residual, gradient);
 			return residual;
 		}
 

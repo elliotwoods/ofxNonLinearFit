@@ -1,5 +1,5 @@
-#include "../lib/NLopt/include/nlopt.h"
-#include "../lib/NLopt/include/nlopt.hpp"
+#include <nlopt.h>
+#include <nlopt.hpp>
 
 #include <vector>
 
